@@ -4,7 +4,9 @@ import io.vertx.core.AbstractVerticle;
 import io.vertx.core.Future;
 import io.vertx.core.Promise;
 import io.vertx.core.http.HttpServer;
+import io.vertx.core.json.JsonArray;
 import io.vertx.ext.web.Router;
+import io.vertx.ext.web.handler.BodyHandler;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,6 +18,8 @@ public class MainVerticle extends AbstractVerticle {
     public void start(Promise<Void> startPromise) throws Exception {
         HttpServer server = vertx.createHttpServer();
         Router router = Router.router(vertx);
+        // add a handler which sets the request body on the RoutingContext.
+        router.route().handler(BodyHandler.create());
 
         router.get("/")
                 // this handler will ensure that the Pojo is serialized to json
@@ -29,8 +33,6 @@ public class MainVerticle extends AbstractVerticle {
                         });
 
         router.post("/")
-                // this handler will ensure that the Pojo is serialized to json
-                // the content type is set to "application/json"
                 .respond(
                         ctx -> {
                             String data = ctx.getBodyAsString();
