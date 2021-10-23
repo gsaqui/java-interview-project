@@ -1,0 +1,22 @@
+= FansUnite Interview project
+
+This project is meant to be a starting project to allow the interviewer to showcase their coding skills.
+
+== Building
+
+To run your application:
+```
+./gradlew clean run
+```
+
+== Code
+
+The only bit of code that will be modified in the interview will be in java/com/example/starter/MainVerticle.java.
+
+There are two endpoints GET (/) and POST (/).
+
+== Tools required
+ - java11+
+ - gradle
+ - git
+ - PostMan or anything to POST json to the the application
