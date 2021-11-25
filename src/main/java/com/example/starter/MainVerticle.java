@@ -26,8 +26,8 @@ public class MainVerticle extends AbstractVerticle {
                 // the content type is set to "application/json"
                 .respond(
                         ctx -> {
-                            String animalType = ctx.queryParams().get("type");
-                            Integer numOfAnimals = Integer.parseInt(ctx.queryParams().get("numOfAnimals"));
+//                            String animalType = ctx.queryParams().get("type");
+//                            Integer numOfAnimals = Integer.parseInt(ctx.queryParams().get("numOfAnimals"));
 
                             return Future.succeededFuture(this.data());
                         });
